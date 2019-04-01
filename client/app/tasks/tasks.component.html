@@ -1,0 +1,39 @@
+<h3>SIMPLE TODO LIST</h3>
+<div class="card project" *ngFor="let project of projects" style="width: 45rem;">
+	<div class="card-header bg-primary">
+		<i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
+		<input class="projectInput bg-primary" type="text" value="{{ project.name }}" #editProject>
+		<div class="icon-container">
+			<button class="btn" (click)="onEditProject(editProject.value, project.id, editProject)"><i class="fa fa-edit fa-lg"></i></button>
+			<button class="btn" (click)="onDeleteProject(project.id)"><i class="fa fa-trash fa-lg"></i></button>
+		</div>
+	</div>
+	<div class="card-body">
+		<div class="input-group mb-3">
+			<i class="fa fa-plus fa-2x"></i>
+			<input type="text" class="form-control" placeholder="start typing here to create a task" #addTask>
+			<input type="date" class="form-control" data-date-inline-picker="true" #taskDate>
+			<div class="input-group-prepend">
+				<button class="btn btn-sm btn-success" (click)="onAddTask(addTask.value, taskDate.value, project.id, project.tasks, alertAddTask)">add task</button>
+			</div>
+		</div>
+		<p class="alert" #alertAddTask></p>
+	</div>
+	<div cdkDropList #tasks="cdkDropList" [cdkDropListData]="project.tasks" (cdkDropListDropped)="drop($event, project.id)">
+		<div *ngFor="let task of project.tasks" cdkDrag class="tasks" class="card-footer">
+			<input #taskStatus type="checkbox" [checked]="task.status === 1" (click)="onChecked(taskStatus, project.id, task.id)">
+			<input type="text" value="{{ task.name }}" #editTask class="taskInput">
+			<p class="taskDate">{{ task.deadline | date }}</p>
+			<div class="icon-container">
+				<button class="btn icon" (click)="onEditTask(editTask.value, project.id, task.id, editTask)"><i class="fa fa-edit"></i></button>
+				<button class="btn icon" (click)="onDeleteTask(project.id, task.id)"><i class="fa fa-trash"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="add-project">
+	<app-add-project (getProjects)="getProjects()"></app-add-project>
+</div>
+<div>
+	<router-outlet></router-outlet>
+</div>

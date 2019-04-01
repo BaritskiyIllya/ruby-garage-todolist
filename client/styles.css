@@ -1,0 +1,126 @@
+.projectInput {
+	border: none;
+	display: inline;
+	font-family: inherit;
+	font-size: 20px;
+	padding: none;
+	width: 80%;
+	color: white;
+	text-align: center;
+}
+
+.projectInput:focus {
+	outline: none;
+}
+
+.projectInput::placeholder {
+	color: red;
+}
+
+.taskInput {
+	border: none;
+	display: inline;
+	font-family: inherit;
+	font-size: inherit;
+	padding: none;
+	width: auto;
+	margin-left: 10px;
+	width: 50%;
+}
+
+.taskInput:focus {
+	outline: none;
+}
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button { 
+	display: none; 
+}
+
+input[type="date"] {
+	width: 7rem;
+}
+
+.taskDate {
+	margin: 5px;
+	display: inline-block;
+}
+
+.project {
+	margin: 0 auto;
+}
+
+h3 {
+	text-align: center
+}
+
+.add-project {
+	margin: 0 auto;
+	text-align: center
+}
+
+.fa-plus {
+	color: #1F5C32;
+	margin: 5px;
+	margin-bottom: 0px;
+}
+
+.fa-calendar {
+	margin: 5px;
+}
+
+.btn-success {
+	border: none;
+	background-color: #1F5C32;
+}
+
+.card-body {
+	background-color: #C0C0C0;
+}
+
+.card-footer {
+	background-color: white;
+}
+
+.card {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.icon-container {
+	float: right;
+}
+
+.card-header .fa {
+	color: white;
+}
+
+.mb-3 {
+	margin-bottom: 0px!important;
+}
+
+.alert {
+	padding: 0px;
+	margin: 0px;
+	height: 3px;
+	font-size: 10px;
+	color: red;
+	right: -35px;
+}
+
+.card-footer:hover {
+	background-color: #EEE6CD;
+	cursor: pointer;
+}
+
+.card-footer:hover .taskInput {
+	background-color: #EEE6CD;
+	cursor: pointer;
+}
+
+.taskInput:hover {
+	cursor: pointer;
+}
